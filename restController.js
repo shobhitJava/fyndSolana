@@ -5,7 +5,6 @@ const { balance, getAllNft, createNft} = require('./fynd.js');
 
 
 app.get('/getBalance/:publicKey', function (req, res) {
-   console.log('1')
      setTimeout(async function (){
         var d= await balance(req.params.publicKey)
         res.status(200).json({ tokens: d });
