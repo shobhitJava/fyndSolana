@@ -1,0 +1,20 @@
+{
+  "name": "nodeJs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/spl-token": "^0.1.8",
+    "@solana/spl-token-registry": "^0.2.585",
+    "@solana/web3.js": "^1.31.0",
+    "express": "^4.17.1",
+    "web3": "^1.6.1"
+  }
+}
