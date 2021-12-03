@@ -24,9 +24,8 @@ app.get('/getAllNft/:publicKey', function (req, res) {
    
     setTimeout(async function (){
        var nft= await getAllNft(req.params.publicKey)
-
-       res.status(200).json(nft.value);
-   },1000); 
+       res.status(200).json(nft);
+   },20000); 
 })
 
 /*app.post('/buyNft', function (req,res){
