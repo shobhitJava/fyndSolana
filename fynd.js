@@ -32,14 +32,26 @@ let c = new web3.Connection(web3.clusterApiUrl('devnet'), 'confirmed');
 
    //returns all nft for an account
   async function getAllNft(publickey){
+    var sourceContent = new Array();
     var nft = await c.getParsedTokenAccountsByOwner(
        new web3.PublicKey(publickey),
         {
           programId: splToken.TOKEN_PROGRAM_ID
         },
         'confirmed'
-      )
-        return nft;
+      ).then(async (parsedTokenAccounts) =>{
+          for (const tokenAccountInfo of parsedTokenAccounts.value) {
+            const mintAddress = tokenAccountInfo.account.data.parsed.info.mint
+            sourceContent.push('https://explorer.solana.com/address/'+mintAddress+'/largest?cluster=devnet');
+          
+        }
+      }
+      ).catch()
+        .finally(() => {
+          // to clear if any
+        })
+      
+        return sourceContent;
   };
 
   async function buyNft(fromaccount,toAccountAdd,tokenAdress){
